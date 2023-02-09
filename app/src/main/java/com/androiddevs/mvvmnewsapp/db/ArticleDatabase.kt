@@ -23,7 +23,7 @@ import com.androiddevs.mvvmnewsapp.models.Article
      companion object{
        @Volatile
        private var instance: ArticleDatabase?= null
-       private  val LOCK= Any()
+       private  val LOCK = Any()
 
 
 
