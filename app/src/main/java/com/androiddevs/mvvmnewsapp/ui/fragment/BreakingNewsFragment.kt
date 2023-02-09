@@ -51,8 +51,10 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         paginationProgressBar.visibility = View.VISIBLE
     }
 
-    private fun setupRecyclerView(){
-        newsAdapter = NewsAdapter()
+    private fun setupRecyclerView() {
+        newsAdapter = NewsAdapter { article ->
+            // Hande on click
+        }
         rvBreakingNews.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)

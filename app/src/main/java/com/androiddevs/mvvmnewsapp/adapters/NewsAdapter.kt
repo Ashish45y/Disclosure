@@ -13,7 +13,9 @@ import com.androiddevs.mvvmnewsapp.models.Source
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
+class NewsAdapter(
+    private val onClick: (Article) -> Unit
+) : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
@@ -48,21 +50,13 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         val article = differ.currentList[position]
         holder.itemView.apply {
             Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-           // tvSource.text = article.source
+            tvSource.text = article.source.name
             tvTitle.text = article.title
             tvDescription.text = article.description
             tvPublishedAt.text = article.publishedAt
-            setOnItemClickListener {
-                onItemClickListener?.let { it(article) }
+            setOnClickListener {
+                onClick(article)
             }
         }
     }
-
-    private var onItemClickListener: ((Article)->Unit)? = null
-
-    fun setOnItemClickListener(listener: (Article)->Unit){
-        onItemClickListener = listener
-    }
-
-
 }

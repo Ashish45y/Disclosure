@@ -2,7 +2,6 @@ package com.androiddevs.mvvmnewsapp.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import javax.xml.transform.Source
 @Entity(
     tableName = "articles"
 )
