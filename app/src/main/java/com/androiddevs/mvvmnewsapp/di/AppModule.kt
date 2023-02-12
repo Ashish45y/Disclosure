@@ -53,8 +53,8 @@ object AppModule {
             .databaseBuilder(
                 context,
                 ArticleDatabase::class.java,
-                "article_db"
-            ).build()
+              "article_db"
+           ).build()
     }
 
     @Provides

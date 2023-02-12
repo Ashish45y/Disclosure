@@ -1,8 +1,7 @@
 package com.androiddevs.mvvmnewsapp.repository
 
+
 import com.androiddevs.mvvmnewsapp.api.NewsApi
-
-
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(
@@ -10,4 +9,6 @@ class NewsRepository @Inject constructor(
 ) {
     suspend fun getBreakingNews(countryCode: String, pageNumber: Int)=
         api.getBreakingNews(countryCode, pageNumber)
+    suspend fun searchNews(searchQuery: String , pageNumber: Int) =
+        api.searchForNews(searchQuery, pageNumber)
 }
